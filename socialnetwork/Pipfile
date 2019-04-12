@@ -8,11 +8,19 @@ flake8 = "*"
 isort = "*"
 ipython = "*"
 yapf = "*"
+autoflake = "*"
+coverage = "*"
 
 [packages]
 django = "*"
 djangorestframework = "*"
 djangorestframework-jwt = "*"
+django-filter = "*"
+django-rest-swagger = "==2.1.2"
+gunicorn = "*"
+newrelic = "*"
+psycopg2 = "*"
+dj-database-url = "*"
 
 [requires]
 python_version = "3.7"
