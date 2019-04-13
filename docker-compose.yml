@@ -3,14 +3,42 @@ version: '3'
 services:
   postgres:
     image: postgres:9.6
+    restart: always
+
+  redis:
+    image: redis
+    restart: always
+    command: redis-server
+    ports:
+      - 6379:6379
+    depends_on:
+      - web
+
+  celery:
+    build: ./automated_bot
+    restart: always
+    command: celery -A pipeline worker -l info
+    volumes:
+      - ./automated_bot:/code
+
+  flower:
+    build: ./automated_bot
+    command: celery flower -A pipeline
+    ports:
+      - 5555:5555
+    volumes:
+      - ./automated_bot:/code
+    depends_on:
+      - celery
+
+  bot:
+    build: ./automated_bot
+    volumes:
+      - ./automated_bot:/code
 
   web:
-    container_name: web
     build: ./socialnetwork
     restart: always
-    command: >
-      bash -c "./manage.py migrate &&
-               ./manage.py runserver 0.0.0.0:8000"
     volumes:
       - ./socialnetwork:/code
     ports:

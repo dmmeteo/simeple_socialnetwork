@@ -18,7 +18,6 @@ djangorestframework-jwt = "*"
 django-filter = "*"
 django-rest-swagger = "==2.1.2"
 gunicorn = "*"
-newrelic = "*"
 psycopg2 = "*"
 dj-database-url = "*"
 

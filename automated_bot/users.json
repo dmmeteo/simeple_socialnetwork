@@ -1,0 +1,27 @@
+[
+  {
+    "email": "foo@mmm.io",
+    "max_posts": 35, 
+    "max_likes": 20
+  },
+  {
+    "email": "bar@mmm.io",
+    "max_posts": 22, 
+    "max_likes": 22
+  },
+  {
+    "email": "var@mmm.io",
+    "max_posts": 50, 
+    "max_likes": 12
+  },
+  {
+    "email": "lol@mmm.io",
+    "max_posts": 11, 
+    "max_likes": 45
+  },
+  {
+    "email": "kek@mmm.io",
+    "max_posts": 34, 
+    "max_likes": 17
+  }
+]

@@ -5,7 +5,7 @@ from rest_framework.permissions import (IsAuthenticated,
                                         IsAuthenticatedOrReadOnly)
 
 from .models import Post
-from .permissions import IsAuthorOrReadOnly
+from .permissions import IsAuthor
 from .serializers import LikePostSerializer, PostSerializer
 
 
@@ -15,7 +15,7 @@ class PostViewSet(viewsets.ModelViewSet):
     """
     queryset = Post.objects.all()
     serializer_class = PostSerializer
-    permission_classes = (IsAuthorOrReadOnly,)
+    permission_classes = (IsAuthor|IsAuthenticatedOrReadOnly,)
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
